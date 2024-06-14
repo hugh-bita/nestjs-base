@@ -1,7 +1,7 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { Exclude } from "class-transformer";
-import { IsOptional } from "class-validator";
-import { ProfilelinkEntity } from "src/profilelinks/entities/profilelink.entity";
+import { ApiProperty } from '@nestjs/swagger';
+import { Exclude } from 'class-transformer';
+import { IsOptional } from 'class-validator';
+import { ProfilelinkEntity } from 'src/profilelinks/entities/profilelink.entity';
 
 export class UserEntity {
   @ApiProperty()
@@ -26,9 +26,9 @@ export class UserEntity {
   @IsOptional()
   profileLink?: ProfilelinkEntity;
 
-  constructor({profileLink, ...data}: Partial<UserEntity>) {
+  constructor({ profileLink, ...data }: Partial<UserEntity>) {
     Object.assign(this, data);
-  
+
     if (profileLink) {
       this.profileLink = new ProfilelinkEntity(profileLink);
     }

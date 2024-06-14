@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "User" ALTER COLUMN "twitterId" SET DEFAULT '',
+ALTER COLUMN "twitterId" SET DATA TYPE TEXT;

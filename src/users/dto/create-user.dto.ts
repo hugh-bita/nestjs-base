@@ -1,7 +1,20 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { IsNotEmpty, IsObject, IsString, MaxLength, MinLength, ValidateNested } from "class-validator";
+import { ApiProperty } from '@nestjs/swagger';
+import {
+  IsEmpty,
+  IsNotEmpty,
+  IsNumber,
+  IsObject,
+  IsString,
+  MaxLength,
+  MinLength,
+  ValidateNested,
+} from 'class-validator';
 
 export class CreateUserDto {
+  constructor(data: Partial<CreateUserDto>) {
+    Object.assign(this, data);
+  }
+
   @IsString()
   @IsNotEmpty()
   @MaxLength(255)
@@ -9,10 +22,14 @@ export class CreateUserDto {
   fullName: string;
 
   @IsString()
+  @ApiProperty()
+  twitterId: string;
+
+  @IsString()
   @IsNotEmpty()
   @MaxLength(255)
   @ApiProperty()
-  email: string;
+  username: string;
 
   @IsString()
   @IsNotEmpty()

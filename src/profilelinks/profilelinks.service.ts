@@ -6,7 +6,7 @@ import { PrismaService } from 'src/prisma/prisma.service';
 @Injectable()
 export class ProfilelinksService {
   constructor(private prisma: PrismaService) {}
-  
+
   create(createProfilelinkDto: CreateProfilelinkDto) {
     return this.prisma.profileLink.create({ data: createProfilelinkDto });
   }

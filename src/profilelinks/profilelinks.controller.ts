@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ProfilelinksService } from './profilelinks.service';
 import { CreateProfilelinkDto } from './dto/create-profilelink.dto';
 import { UpdateProfilelinkDto } from './dto/update-profilelink.dto';
@@ -26,7 +34,10 @@ export class ProfilelinksController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateProfilelinkDto: UpdateProfilelinkDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateProfilelinkDto: UpdateProfilelinkDto,
+  ) {
     return this.profilelinksService.update(+id, updateProfilelinkDto);
   }
 

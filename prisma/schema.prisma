@@ -16,7 +16,8 @@ datasource db {
 model User {
   id          Int          @id @default(autoincrement())
   fullName    String       @db.VarChar(255)
-  email       String       @unique @db.VarChar(255)
+  twitterId   String       @default("")
+  username    String       @unique @db.VarChar(255)
   password    String
   loggedAt    DateTime?
   createdAt   DateTime     @default(now())
